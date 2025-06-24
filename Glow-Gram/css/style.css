@@ -1,0 +1,166 @@
+/* css/style.css */
+@import url('loading.css');
+@import url('components.css');
+
+:root {
+    --primary-glow: #ff00aa;
+    --secondary-glow: #00ff88;
+    --accent-glow: #0095ff;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --content-width: 1200px;
+    --section-padding: 5rem;
+    --transition-duration: 0.4s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--darker-bg);
+    color: #f0f0f0;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    background: linear-gradient(to right, #fff, var(--primary-glow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Default to left for mobile */
+    width: 4rem;
+    height: 0.25rem;
+    background: linear-gradient(to right, var(--primary-glow), var(--secondary-glow));
+    border-radius: 0.25rem;
+}
+
+/* Center H2 underline if text is centered */
+h2[style*="text-align: center"]::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Ensure padding on smaller screens */
+}
+
+section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+/* Background Effects */
+.glowing-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Stats Grid for About Page */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all var(--transition-duration) ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    border-color: var(--secondary-glow);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-glow);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Media Queries for general layout adjustments */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 3rem; /* Reduce padding on smaller screens */
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+
+    p {
+        font-size: 1rem;
+    }
+} 
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack stats on very small screens */
+    }
+}
+@media (max-width:480px){
+    nav{
+        display: none;
+    }
+}
