@@ -34,7 +34,7 @@ This is a static website, so setting it up is straightforward:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YourGitHubUsername/glowgram-prototype.git](https://github.com/Prash-Ant-Magician/Glow-Gram.git)
+    git clone [https://github.com/Prash-Ant-Magician/Glow-Gram.git](https://github.com/Prash-Ant-Magician/Glow-Gram.git)
     ```
 2.  **Navigate to the project directory:**
     ```bash
